@@ -1,17 +1,16 @@
 import express from 'express';
-import { connectetion } from './config/db';
-import { userModel } from './models/user.model';
-
-const app = express();
-app.use(express.json());
-
-console.log(connectetion, userModel);
+import userRouter from './routers/user.router';
 
 const PORT = 3000;
+const app = express();
+
+app.use(express.json());
 
 app.get('/', (_req, res) => {
   res.send('Hello! 👀')
 })
+
+app.use('/api/user', userRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
