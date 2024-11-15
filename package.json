@@ -1,0 +1,26 @@
+{
+  "name": "bookreviews",
+  "version": "1.0.0",
+  "description": "API for bookReviews project. (a project to practice nodejs and flutter)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev src/index.ts",
+    "start": "node build/index.js",
+    "tsc": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Román González",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parse": "^0.1.0",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.1"
+  }
+}
