@@ -5,6 +5,10 @@ import { encrypt } from '../utils';
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
   email: {
     type: String,
     lowercase: true,

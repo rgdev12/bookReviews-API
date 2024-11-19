@@ -3,11 +3,11 @@ import { UserService } from '../services/user.service';
 
 export const register = async (req: Request, res: Response) => {
   try {
-    const { email, password } = req.body;
+    const { name, email, password } = req.body;
 
-    await UserService.registerUser(email, password);
-    res.json({status: true, message: 'User Registered Successfully'})
+    await UserService.registerUser(name, email, password);
+    res.json({success: true, message: 'User Registered Successfully'});
   } catch (err) {
-    throw err;
+    res.status(500).json({ success: false, message: 'User could not be registered' });
   }
 }
