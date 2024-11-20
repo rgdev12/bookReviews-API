@@ -23,9 +23,7 @@ const userSchema = new Schema({
 
 userSchema.pre("save", async function() {
   let user = this;
-  const hashPass = await encrypt(user.password);
-
-  user.password = hashPass;
+  user.password = await encrypt(user.password);
 });
 
 export const userModel = connectetion.model('user', userSchema);
