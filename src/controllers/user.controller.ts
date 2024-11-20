@@ -1,7 +1,7 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import { UserService } from '../services/user.service';
 
-export const register = async (req: Request, res: Response) => {
+export const register = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { name, email, password } = req.body;
 
@@ -19,7 +19,6 @@ export const register = async (req: Request, res: Response) => {
       });
     }
   } catch (err) {
-    console.log('err', err)
-    res.status(500).json({ success: false, message: 'User could not be registered' });
+    next(err);
   }
 }

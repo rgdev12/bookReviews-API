@@ -1,5 +1,6 @@
 import express from 'express';
 import userRouter from './routers/user.router';
+import { errorHandler } from './middleware/errorHandler';
 
 const PORT = 3001;
 const app = express();
@@ -12,6 +13,7 @@ app.get('/', (_req, res) => {
 
 app.use('/api/user', userRouter);
 
+app.use(errorHandler);
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
